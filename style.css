@@ -723,3 +723,14 @@ footer {
   opacity: 0.7;
   cursor: not-allowed;
 }
+
+.navbar-nav .nav-link:focus,
+.navbar-nav .nav-link.active,
+.nav-button:focus,
+.nav-button.active {
+  color: #ff4d4d !important;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  outline: none;
+}
+
