@@ -734,3 +734,50 @@ footer {
   outline: none;
 }
 
+/* style.css */
+
+/* --- Стили для контейнера кнопки (Центрирование и Максимальная ширина 900px) --- */
+.load-more-wrapper {
+    /* Ограничиваем максимальную ширину контейнера до 900px, как у карточек */
+    max-width: 900px; 
+    /* Центрируем контейнер на странице */
+    margin-left: auto;
+    margin-right: auto;
+    /* Убедитесь, что кнопка внутри центрирована */
+    text-align: center; 
+    /* Добавляем вертикальные отступы */
+    margin-top: 3rem; /* Соответствует mt-5 в Bootstrap */
+    margin-bottom: 3rem; /* Соответствует mb-5 в Bootstrap */
+}
+
+/* --- Стили для самой кнопки Load More (Без Bootstrap) --- */
+#load-more-btn {
+    /* Делаем кнопку блочным элементом, чтобы она занимала всю доступную ширину 900px */
+    display: block; 
+    width: 100%;
+    max-width: 100%; /* Убеждаемся, что она не выходит за пределы родителя (900px) */
+    
+    /* Стилизация внешнего вида */
+    padding: 1rem 2rem; /* Внутренние отступы */
+    font-size: 1.25rem; /* Размер шрифта, как у btn-lg */
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.5rem; /* Закругление углов */
+    
+    /* Цветовая схема, похожая на btn-danger */
+    background-color: #dc3545; /* Красный фон */
+    color: white; /* Белый текст */
+    
+    /* Эффект при наведении */
+    transition: background-color 0.3s ease;
+}
+
+#load-more-btn:hover {
+    background-color: #c82333; /* Темнее красный при наведении */
+}
+
+#load-more-btn:disabled {
+    background-color: #6c757d; /* Серый при неактивном состоянии */
+    cursor: not-allowed;
+}
