@@ -691,3 +691,35 @@ footer {
 .day-mode .news-title {
   color: #000000 !important;
 }
+/* === Contact form validation & spinner === */
+.contact-form .error-message {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: #ff7777;
+  font-weight: 600;
+  text-align: center;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ff4d4d;
+  margin-top: 10px;
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.contact-form .success-message {
+  background-color: rgba(0, 255, 0, 0.1);
+  color: #7cff7c;
+  font-weight: 600;
+  text-align: center;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #4CAF50;
+  margin-top: 10px;
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.submit-button:disabled {
+  background-color: #a00 !important;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
