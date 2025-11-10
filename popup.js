@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-    
+
     const modal = document.getElementById('accessModal');
-    const openButton = document.getElementById('openAccessModal'); 
+    const openButton = document.getElementById('openAccessModal');
     const closeButton = modal ? modal.querySelector('.close-button') : null;
-    
     const registerPanel = document.getElementById('registerPanel');
     const loginPanel = document.getElementById('loginPanel');
     const showLoginLink = document.getElementById('showLogin');
@@ -14,11 +13,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     }
-
     function showError(elementId, message) {
         const errorElement = document.getElementById(elementId);
         errorElement.textContent = message;
         errorElement.style.display = 'block';
+
     }
 
     function clearAllMessages() {
@@ -26,37 +25,39 @@ document.addEventListener('DOMContentLoaded', function() {
             el.textContent = '';
             el.style.display = 'none';
         });
+
         const regSuccess = document.getElementById('regSuccessMessage');
         const logSuccess = document.getElementById('logSuccessMessage');
         if (regSuccess) regSuccess.style.display = 'none';
         if (logSuccess) logSuccess.style.display = 'none';
+
     }
-    
+
     function openModal() {
         if (!modal) return;
-        modal.style.display = 'flex'; 
-        
+        modal.style.display = 'flex';
         if (registerPanel) registerPanel.style.display = 'block';
         if (loginPanel) loginPanel.style.display = 'none';
         if (modalTitle) modalTitle.textContent = 'Register for MyFlix';
-        
         const regForm = document.getElementById('registrationForm');
         const logForm = document.getElementById('loginForm');
         if (regForm) regForm.reset();
         if (logForm) logForm.reset();
-        
         clearAllMessages();
+
     }
 
     function closeModal() {
         if (modal) {
             modal.style.display = 'none';
         }
+
     }
 
     if (openButton) {
         openButton.addEventListener('click', openModal);
     }
+
 
     if (closeButton) {
         closeButton.addEventListener('click', closeModal);
@@ -66,12 +67,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (event.target === modal) {
             closeModal();
         }
+
     });
 
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && modal && modal.style.display === 'flex') {
             closeModal();
         }
+
     });
 
     function switchToLogin() {
@@ -79,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (loginPanel) loginPanel.style.display = 'block';
         if (modalTitle) modalTitle.textContent = 'Welcome Back!';
         clearAllMessages();
+
     }
 
     function switchToRegister() {
@@ -94,18 +98,18 @@ document.addEventListener('DOMContentLoaded', function() {
             switchToLogin();
         });
     }
-
     if (showRegisterLink) {
         showRegisterLink.addEventListener('click', (e) => {
             e.preventDefault();
             switchToRegister();
         });
+
     }
+
 
     const regForm = document.getElementById('registrationForm');
     if (regForm) {
         regForm.addEventListener('submit', validateRegistrationForm);
-
         function validateRegistrationForm(event) {
             event.preventDefault();
             clearAllMessages();
@@ -114,7 +118,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const emailValue = document.getElementById('regEmail').value.trim();
             const passwordValue = document.getElementById('regPassword').value;
             const confirmPasswordValue = document.getElementById('regConfirmPassword').value;
-
             if (emailValue === '') {
                 showError('regEmailError', 'Email is required.');
                 isValid = false;
@@ -148,6 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     const logForm = document.getElementById('loginForm');
+
     if (logForm) {
         logForm.addEventListener('submit', validateLoginForm);
 
@@ -155,23 +159,21 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             clearAllMessages();
             let isValid = true;
-
             const emailValue = document.getElementById('logEmail').value.trim();
             const passwordValue = document.getElementById('logPassword').value;
 
             if (emailValue === '') {
                 showError('logEmailError', 'Email is required.');
                 isValid = false;
+
             } else if (!isValidEmail(emailValue)) {
                 showError('logEmailError', 'Invalid email format.');
                 isValid = false;
             }
-            
             if (passwordValue === '') {
                 showError('logPasswordError', 'Password is required.');
                 isValid = false;
             }
-
             if (isValid) {
                 document.getElementById('logSuccessMessage').textContent = '✅ Login Successful! Welcome to MyFlix.';
                 document.getElementById('logSuccessMessage').style.display = 'block';

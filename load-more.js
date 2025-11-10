@@ -1,129 +1,76 @@
-// load-more.js
-
-document.addEventListener('DOMContentLoaded', () => {
-    const loadMoreBtn = document.getElementById('load-more-btn');
-    const newsContainer = document.getElementById('news-container');
-    const loadingIndicator = document.getElementById('loading-indicator');
-    const noMoreNewsMsg = document.getElementById('no-more-news');
-    let currentPage = 1; // Tracks the current page/set of data loaded
-
-    // **IMPORTANT:** Replace '/api/more-news' with your actual server endpoint.
-    const API_URL = '/api/more-news';
-    
-    // Placeholder data function for demonstration purposes
-    // In a real application, this data would come from the fetch call.
-    function getPlaceholderNews(page) {
-        if (page > 3) { // Simulate having no more data after page 3
-            return [];
-        }
-
-        const newsData = [
-            {
-                id: 3,
-                title: "KPop Demon Hunters 2 Confirmed At Netflix — Aiming For A 2029 Release",
-                summary: "Netflix and Sony Pictures Animation have confirmed a sequel to *KPop Demon Hunters*, aiming for a 2029 release, with creators Maggie Kang and Chris Appelhans set to return, though plot details remain under wraps.",
-                image: "images/rumi.jpg", 
-                link: "#"
-            },
-            {
-                id: 4,
-                title: "The Best Movies Of 2025 (So Far)",
-                summary: "Empire magazine has ranked the top 10 films of 2025 so far, highlighting a mix of horror hits, dramas, thrillers, and character-driven stories, while noting that six months of the year remain for more cinematic highlights.",
-                image: "images/best.jpg", // Replace with a real image path
-                link: "#"
-            },
-            {
-                id: 5,
-                title: "Brendan Fraser And Rachel Weisz In Talks For New The Mummy Movie From Ready Or Not Directors",
-                summary: "Directors Matt Bettinelli-Olpin and Tyler Gillett are reportedly planning a new *The Mummy* movie as a sequel to *The Mummy Returns*, with Brendan Fraser and Rachel Weisz potentially returning as Rick and Evelyn O’Connell.",
-                image: "images/The.jpg", // Replace with a real image path
-                link: "#"
-            }
-        ];
-
-        // Simulate different sets of news for different pages
-        if (page === 1) return newsData.slice(0, 2);
-        if (page === 2) return newsData.slice(1, 3);
-        if (page === 3) return [newsData[0]];
-        return [];
-    }
-
-    /**
-     * Creates the HTML structure for a single news item.
-     * @param {Object} news - The news object from the API.
-     * @returns {string} The HTML string for the news card.
-     */
-    function createNewsCardHTML(news) {
-        return `
-            <div class="col-12 new-content">
-                <div class="media-card" style="max-width: 900px; margin: 0 auto;">
-                    <img src="${news.image}" alt="${news.title}" class="img-fluid">
-                    <div>
-                        <h3>${news.title}</h3>
-                        <p>
-                            ${news.summary}
-                            <a href="${news.link}" target="_blank" class="text-danger text-decoration-none">Read more</a>
-                        </p>
-                    </div>
+$(document).ready(function() {
+    const $newsContainer = $('#news-container');
+    const $loadMoreBtn = $('#load-more-btn');
+    const $loadingIndicator = $('#loading-indicator');
+    const $noMoreNews = $('#no-more-news');
+    const allExtraNews = [
+        `<div class="col-12">
+            <div class="media-card" style="max-width: 900px; margin: 0 auto;">
+                <img src="images/witcher.jpg" alt="The Witcher Season 4" class="img-fluid">
+                <div>
+                    <h3>The Witcher Season 4: First Look at Liam Hemsworth as Geralt</h3>
+                    <p>
+                        New set photos confirm Liam Hemsworth taking over the role of Geralt of Rivia for the upcoming fourth season.
+                        <a href="https://www.netflix.com/tudum/articles/the-witcher-season-4-liam-hemsworth" target="_blank" class="text-danger text-decoration-none">Read more</a>
+                    </p>
                 </div>
             </div>
-        `;
-    }
+        </div>`,
+        `<div class="col-12">
+            <div class="media-card" style="max-width: 900px; margin: 0 auto;">
+                <img src="images/avatar.jpg" alt="Avatar 3" class="img-fluid">
+                <div>
+                    <h3>Avatar 3 Title Revealed as 'The Seed Bearer'</h3>
+                    <p>
+                        James Cameron shares new details about the third installment of the Avatar saga, including the official title.
+                        <a href="https://variety.com/2023/film/news/avatar-3-title-the-seed-bearer-not-true-jon-landau-1235825777/" target="_blank" class="text-danger text-decoration-none">Read more</a>
+                    </p>
+                </div>
+            </div>
+        </div>`,
+        `<div class="col-12">
+            <div class="media-card" style="max-width: 900px; margin: 0 auto;">
+                <img src="images/dunem.jpg" alt="Dune Messiah" class="img-fluid">
+                <div>
+                    <h3>Dune Messiah Movie Adaptation Moves Forward with Zendaya</h3>
+                    <p>
+                        Denis Villeneuve is reportedly fast-tracking the production of 'Dune Messiah', with Zendaya's role expanding significantly.
+                        <a href="https://comicbook.com/movies/news/dune-3-messiah-leads-replacing-timothee-chalamet-zendaya/" target="_blank" class="text-danger text-decoration-none">Read more</a>
+                    </p>
+                </div>
+            </div>
+        </div>`
+    ];
 
-    /**
-     * Fetches and loads additional news content.
-     */
-    async function loadMoreContent() {
-        // Disable button and show loading indicator
-        loadMoreBtn.disabled = true;
-        loadingIndicator.style.display = 'block';
+    const newsPerLoad = 2; 
+    let currentNewsIndex = 0;
+    $loadMoreBtn.on('click', function() {
+        $loadingIndicator.show();
+        $loadMoreBtn.hide();
 
-        try {
-            // ** Uncomment the fetch block below and remove the placeholder call
-            //    when you have a real API endpoint!
+        setTimeout(function() {
             
-            /*
-            const response = await fetch(`${API_URL}?page=${currentPage + 1}`);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const data = await response.json();
-            const newNewsItems = data.news; // Adjust based on your API response structure
-            */
-            
-            // --- Placeholder data simulation START ---
-            await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate network delay
-            const newNewsItems = getPlaceholderNews(currentPage + 1);
-            // --- Placeholder data simulation END ---
-            
+            const endIndex = currentNewsIndex + newsPerLoad;
 
-            if (newNewsItems && newNewsItems.length > 0) {
-                let allNewsHTML = '';
-                newNewsItems.forEach(news => {
-                    allNewsHTML += createNewsCardHTML(news);
-                });
-                
-                // Append the new content to the container
-                newsContainer.insertAdjacentHTML('beforeend', allNewsHTML);
-                currentPage++; // Increment page counter for the next load
+            const newsBatch = allExtraNews.slice(currentNewsIndex, endIndex);
+            
+            newsBatch.forEach(function(newsHtml) {
+                const $newArticle = $(newsHtml).hide(); 
+                $newsContainer.append($newArticle);
+                $newArticle.fadeIn(500);
+            });
+            
+            currentNewsIndex = endIndex;
 
+            $loadingIndicator.hide();
+
+            if (currentNewsIndex >= allExtraNews.length) {
+                $loadMoreBtn.hide(); 
+                $noMoreNews.show();
             } else {
-                // If the array is empty or null, assume no more news
-                loadMoreBtn.style.display = 'none'; // Hide the button
-                noMoreNewsMsg.style.display = 'block'; // Show "No more news" message
+                $loadMoreBtn.show();
             }
 
-        } catch (error) {
-            console.error('Error loading additional content:', error);
-            // Optionally, show an error message to the user
-            alert('Failed to load more content. Please try again.');
-        } finally {
-            // Re-enable button and hide loading indicator
-            loadMoreBtn.disabled = false;
-            loadingIndicator.style.display = 'none';
-        }
-    }
-
-    // Attach the event listener to the button
-    loadMoreBtn.addEventListener('click', loadMoreContent);
+        }, 1000); 
+    });
 });

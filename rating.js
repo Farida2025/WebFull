@@ -7,13 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     ratingContainers.forEach(container => {
-        const mediaIdElement = container.closest('[data-series-id], [data-movie-id], [data-cartoon-id]');
-        
-        const mediaId = mediaIdElement ? (
-            mediaIdElement.getAttribute('data-series-id') ||
-            mediaIdElement.getAttribute('data-movie-id') ||
-            mediaIdElement.getAttribute('data-cartoon-id')
-        ) : null;
+        const mediaIdElement = container.closest('[data-series-id], [data-movie-id], [data-cartoon-id], .media-card');
+
+const mediaId =
+  mediaIdElement?.getAttribute('data-series-id') ||
+  mediaIdElement?.getAttribute('data-movie-id') ||
+  mediaIdElement?.getAttribute('data-cartoon-id') ||
+  mediaIdElement?.querySelector('h3')?.textContent.trim().replace(/\s+/g, "_").toLowerCase();
+
         
         const stars = container.querySelectorAll('.star');
         const messageElement = container.querySelector('.user-rating-message');

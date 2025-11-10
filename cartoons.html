@@ -1,238 +1,491 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MyFlex - Cartoons</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-    <link rel="stylesheet" href="style.css" />
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyFlex - Cartoons</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
+
 <body class="text-white d-flex flex-column min-vh-100 bg-theme-4">
-    <button id="theme-toggle" aria-label="Toggle theme">
-  🌙
-</button>
+  <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
 
-    <header class="py-3 border-bottom border-secondary" id="header">
-        <div class="container-fluid d-flex justify-content-between align-items-center px-4 px-lg-5">
-            
-            <div class="photo">
-                <img 
-  src="images/logo.jpg" 
-  data-light="images/whitelogo.jpg" 
-  alt="MyFlex Logo" 
-  class="logo" 
-  style="width: 100px; height: auto;" 
-/>
-            </div>
+  <header class="py-3 border-bottom border-secondary" id="header">
+    <div class="container-fluid d-flex justify-content-between align-items-center px-4 px-lg-5">
+      <div class="photo">
+        <a href="index.html">
+          <img 
+            src="images/logo.jpg" 
+            data-light="images/whitelogo.jpg" 
+            alt="MyFlex Logo" 
+            class="logo" 
+            style="width: 100px; height: auto;" 
+          />
+        </a>
+      </div>
 
-            <nav class="navbar navbar-expand-lg navbar-dark p-0" aria-label="Main Navigation">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav gap-2 gap-lg-4 align-items-center">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="movies.html">Movies</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="series.html">Series</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active text-danger" aria-current="page" href="cartoons.html">Cartoons</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="news.html">News</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="contact.html">Contact</a>
-                        </li>
-                        
-                    </ul>
-                </div>
-            </nav>
+      <nav class="navbar navbar-expand-lg navbar-dark p-0" aria-label="Main Navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav gap-2 gap-lg-4 align-items-center">
+            <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="movies.html">Movies</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="series.html">Series</a></li>
+            <li class="nav-item"><a class="nav-link active text-danger" aria-current="page" href="cartoons.html">Cartoons</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="news.html">News</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="favorites.html">Favorites</a></li>
+          </ul>
         </div>
-    </header>
+      </nav>
+    </div>
+  </header>
 
-    <main class="flex-grow-1 py-5">
-        <div class="container px-4 px-lg-5">
-            
-            <h2 class="text-center text-white mb-5">Cartoons</h2>
+  <main class="flex-grow-1 py-5">
+    <div class="container px-4 px-lg-5 main filters">
+      <h2 class="text-center mb-5">Cartoons</h2>
+      
+      <section class="filter-controls" aria-label="Content filters">
+        <h1>Content Filter</h1>
 
-            <div class="row g-4 justify-content-center" id="cartoons-list">
+        <div class="select-group" id="dropdown-filters">
+          <select class="filter-select" id="filter-genres" data-filter-key="genres">
+            <option value="">All Genres</option>
+            <option value="action">Action</option>
+            <option value="adventure">Adventure</option>
+            <option value="animation">Animation</option>
+            <option value="biography">Biography</option>
+            <option value="comedy">Comedy</option>
+            <option value="crime">Crime</option>
+            <option value="drama">Drama</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="history">History</option>
+            <option value="sci-fi">Sci-Fi</option>
+          </select>
 
-                <div class="col-12">
-                    <div class="media-card" data-cartoon-id="spongebob">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8osYPFkoJ43Ej9K_h3vobKzc-y40s0UqU1w&s" alt="SpongeBob SquarePants" class="img-fluid">
-                        <div>
-                            <h3>SpongeBob SquarePants</h3>
-                            <p><b>Years:</b> 1999 – present</p>
-                            <p>Adventures of SpongeBob and his friends in Bikini Bottom.</p>
-                            
-                            <div class="user-rating">
-                                <p class="mb-1">Your Rating:</p>
-                                <div class="rating">
-                                    <span class="star" data-value="1"><i class="fas fa-star"></i></span>
-                                    <span class="star" data-value="2"><i class="fas fa-star"></i></span>
-                                    <span class="star" data-value="3"><i class="fas fa-star"></i></span>
-                                    <span class="star" data-value="4"><i class="fas fa-star"></i></span>
-                                    <span class="star" data-value="5"><i class="fas fa-star"></i></span>
-                                </div>
-                                <p class="user-rating-message text-danger">Click a star to rate!</p>
-                            </div>
-                            </div>
-                    </div>
-                </div>
+          <select class="filter-select" id="filter-countries" data-filter-key="countries">
+            <option value="">All Countries</option>
+            <option value="usa">USA</option>
+            <option value="uk">UK</option>
+            <option value="russia">Russia</option>
+            <option value="korea">Korea</option>
+            <option value="turkey">Turkey</option>
+          </select>
 
-                <div class="col-12">
-                    <div class="media-card" data-cartoon-id="tom-jerry">
-                        <img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p14279_p_v10_aa.jpg" alt="Tom and Jerry" class="img-fluid">
-                        <div>
-                            <h3>Tom and Jerry</h3>
-                            <p><b>Years:</b> 1940 – present</p>
-                            <p>Classic rivalry between a mischievous mouse and a clumsy cat.</p>
+          <select class="filter-select" id="filter-years" data-filter-key="year">
+            <option value="">All Years</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+            <option value="2020s">2020 - 2029</option>
+            <option value="2010s">2010 - 2019</option>
+            <option value="2000s">2000 - 2009</option>
+          </select>
 
-                            <div class="user-rating">
-                                <p class="mb-1">Your Rating:</p>
-                                <div class="rating">
-                                    <span class="star" data-value="1"><i class="fas fa-star"></i></span>
-                                    <span class="star" data-value="2"><i class="fas fa-star"></i></span>
-                                    <span class="star" data-value="3"><i class="fas fa-star"></i></span>
-                                    <span class="star" data-value="4"><i class="fas fa-star"></i></span>
-                                    <span class="star" data-value="5"><i class="fas fa-star"></i></span>
-                                </div>
-                                <p class="user-rating-message text-danger">Click a star to rate!</p>
-                            </div>
-                            </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="media-card" data-cartoon-id="gravity-falls">
-                        <img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p9248224_b_v8_ax.jpg" alt="Gravity Falls" class="img-fluid">
-                        <div>
-                            <h3>Gravity Falls</h3>
-                            <p><b>Years:</b> 2012 – 2016</p>
-                            <p>Dipper and Mabel uncover supernatural mysteries in Gravity Falls.</p>
-
-                            <div class="user-rating">
-                                <p class="mb-1">Your Rating:</p>
-                                <div class="rating">
-                                    <span class="star" data-value="1"><i class="fas fa-star"></i></span>
-                                    <span class="star" data-value="2"><i class="fas fa-star"></i></span>
-                                    <span class="star" data-value="3"><i class="fas fa-star"></i></span>
-                                    <span class="star" data-value="4"><i class="fas fa-star"></i></span>
-                                    <span class="star" data-value="5"><i class="fas fa-star"></i></span>
-                                </div>
-                                <p class="user-rating-message text-danger">Click a star to rate!</p>
-                            </div>
-                            </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="media-card" data-cartoon-id="avatar-tla">
-                        <img src="https://m.media-amazon.com/images/I/61Wps+FMG-L._UF1000,1000_QL80_.jpg" alt="Avatar: The Last Airbender" class="img-fluid">
-                        <div>
-                            <h3>Avatar: The Last Airbender</h3>
-                            <p><b>Years:</b> 2005 – 2008</p>
-                            <p>Aang must master the four elements to bring peace to the world.</p>
-
-                            <div class="user-rating">
-                                <p class="mb-1">Your Rating:</p>
-                                <div class="rating">
-                                    <span class="star" data-value="1"><i class="fas fa-star"></i></span>
-                                    <span class="star" data-value="2"><i class="fas fa-star"></i></span>
-                                    <span class="star" data-value="3"><i class="fas fa-star"></i></span>
-                                    <span class="star" data-value="4"><i class="fas fa-star"></i></span>
-                                    <span class="star" data-value="5"><i class="fas fa-star"></i></span>
-                                </div>
-                                <p class="user-rating-message text-danger">Click a star to rate!</p>
-                            </div>
-                            </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="media-card" data-cartoon-id="rick-morty">
-                        <img src="https://m.media-amazon.com/images/M/MV5BZGQyZjk2MzMtMTcyNC00NGU3LTlmNjItNDExMWM4ZDFhYmQ2XkEyXkFqcGc@._V1_.jpg" alt="Rick and Morty" class="img-fluid">
-                        <div>
-                            <h3>Rick and Morty</h3>
-                            <p><b>Years:</b> 2013 – present</p>
-                            <p>A mad scientist and his grandson go on chaotic adventures across dimensions.</p>
-
-                            <div class="user-rating">
-                                <p class="mb-1">Your Rating:</p>
-                                <div class="rating">
-                                    <span class="star" data-value="1"><i class="fas fa-star"></i></span>
-                                    <span class="star" data-value="2"><i class="fas fa-star"></i></span>
-                                    <span class="star" data-value="3"><i class="fas fa-star"></i></span>
-                                    <span class="star" data-value="4"><i class="fas fa-star"></i></span>
-                                    <span class="star" data-value="5"><i class="fas fa-star"></i></span>
-                                </div>
-                                <p class="user-rating-message text-danger">Click a star to rate!</p>
-                            </div>
-                            </div>
-                    </div>
-                </div>
-
-            </div> 
-        </div> 
-    </main>
-    
-    <footer class=" text-light mt-auto pt-5 pb-3 border-top border-secondary">
-        <div class="container">
-            <div class="row">
-                
-                <div class="col-lg-4 mb-4 mb-lg-0 footer-section">
-                    <h3 class="text-danger border-bottom border-secondary pb-2 mb-3">About MyFlix</h3>
-                    <p>
-                        MyFlix is your homepage for trending movies, series, and cartoons. We strive to provide the best content in a simple and user-friendly format.
-                    </p>
-                </div>
-
-                <div class="col-lg-3 offset-lg-1 mb-4 mb-lg-0 footer-section">
-                    <h3 class="text-danger border-bottom border-secondary pb-2 mb-3">Quick Links</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="cartoons.html" class="text-decoration-none text-light">Cartoons</a></li>
-                        <li><a href="movies.html" class="text-decoration-none text-light">Movies</a></li>
-                        <li><a href="series.html" class="text-decoration-none text-light">Series</a></li>
-                        <li><a href="contact.html" class="text-decoration-none text-light">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 footer-section">
-                    <h3 class="text-danger border-bottom border-secondary pb-2 mb-3">Connect With Us</h3>
-                    <div class="contact mb-3">
-                        <p class="mb-1"><i class="icon fas fa-phone text-danger me-2"></i> Phone: 87053915895</p>
-                        <p class="mb-1"><i class="icon fas fa-envelope text-danger me-2"></i> Email: farida02.03@icloud.com</p>
-                    </div>
-                    
-                    <div class="social-links d-flex gap-3 mt-3">
-                        <a href="https://instagram.com/farideepl" target="_blank" aria-label="Instagram" class="btn btn-secondary rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;"><i class="fab fa-instagram fs-5"></i></a>
-                        <a href="https://www.tiktok.com/@farideepl" target="_blank" aria-label="TikTok" class="btn btn-secondary rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;"><i class="fab fa-tiktok fs-5"></i></a>
-                        <a href="https://t.me/fari_davv" target="_blank" aria-label="Telegram" class="btn btn-secondary rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;"><i class="fab fa-telegram-plane fs-5"></i></a>
-                    </div>
-                </div>
-
-            </div>
-            
-            <div class="footer-bottom text-center pt-3 mt-4 border-top border-secondary">
-                &copy; Group Members: Alua Sagyndyk, Altynay Bolatova, Farida Dovletbaeva — 2025 MyFlix
-            </div>
+          <select class="filter-select" id="filter-rating" data-filter-key="rating">
+            <option value="">Any Rating</option>
+            <option value="9+">9+</option>
+            <option value="8+">8+</option>
+            <option value="7+">7+</option>
+            <option value="6+">6+</option>
+          </select>
         </div>
-    </footer>
-    <script src="rating.js"></script>
-    <script src="theme-switcher.js"></script>
-    <script src="navKeyboard.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcId1nN7jIeHzI" crossorigin="anonymous"></script>
+        <button id="reset-filters-btn">Reset Filters</button>
+
+        <div class="active-filters-section">
+          <strong>Active filters:</strong>
+          <div id="active-filters-display">
+            <span id="no-filters-msg" style="color:#6c757d;">No filters selected.</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="search-bar mb-4 text-center position-relative d-flex justify-content-center">
+        <div class="search-wrapper position-relative w-100">
+          <input 
+            type="text" 
+            id="movie-search" 
+            class="form-control" 
+            placeholder="Search..."
+            aria-label="Search"
+            autocomplete="off"
+          >
+          <ul id="search-suggestions" class="list-group position-absolute w-100" style="z-index: 1000; top: 100%; left: 0;"></ul>
+        </div>
+      </div>
+
+      <div class="row g-4 justify-content-center" id="cartoons-list">
+        <div class="col-12">
+          <div class="media-card" data-genres="comedy" data-countries="usa" data-year="1990s" data-trailer-key="TcMBFSGVi1c" data-imdb-rating="8.2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8osYPFkoJ43Ej9K_h3vobKzc-y40s0UqU1w&s" alt="SpongeBob SquarePants" class="img-fluid">
+            <div>
+              <h3>SpongeBob SquarePants</h3>
+              <p><b>Genre:</b> Comedy</p>
+              <p><b>Country:</b> USA</p>
+              <p><b>IMDb Rating:</b> ⭐ 8.2/10</p>
+              <div class="user-rating">
+                <p class="mb-1">Your Rating:</p>
+                <div class="rating">
+                  <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+                </div>
+                <p class="user-rating-message text-danger">Click a star to rate!</p>
+              </div>
+              <button class="favorite-btn" data-title="SpongeBob SquarePants" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8osYPFkoJ43Ej9K_h3vobKzc-y40s0UqU1w&s">❤️ Add to Favorite</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="media-card" data-genres="comedy" data-countries="usa" data-year="1940s" data-trailer-key="TcMBFSGVi1c" data-imdb-rating="8.3">
+            <img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p14279_p_v10_aa.jpg" alt="Tom and Jerry" class="img-fluid">
+            <div>
+              <h3>Tom and Jerry</h3>
+              <p><b>Genre:</b> Comedy</p>
+              <p><b>Country:</b> USA</p>
+              <p><b>IMDb Rating:</b> ⭐ 8.3/10</p>
+              <div class="user-rating">
+                <p class="mb-1">Your Rating:</p>
+                <div class="rating">
+                  <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+                </div>
+                <p class="user-rating-message text-danger">Click a star to rate!</p>
+              </div>
+              <button class="favorite-btn" data-title="Tom and Jerry" data-image="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p14279_p_v10_aa.jpg">❤️ Add to Favorite</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="media-card" data-genres="mystery,adventure" data-countries="usa" data-year="2010s" data-trailer-key="TcMBFSGVi1c" data-imdb-rating="8.9">
+            <img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p9248224_b_v8_ax.jpg" alt="Gravity Falls" class="img-fluid">
+            <div>
+              <h3>Gravity Falls</h3>
+              <p><b>Genre:</b> Mystery, Adventure</p>
+              <p><b>Country:</b> USA</p>
+              <p><b>IMDb Rating:</b> ⭐ 8.9/10</p>
+              <div class="user-rating">
+                <p class="mb-1">Your Rating:</p>
+                <div class="rating">
+                  <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+                </div>
+                <p class="user-rating-message text-danger">Click a star to rate!</p>
+              </div>
+              <button class="favorite-btn" data-title="Gravity Falls" data-image="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p9248224_b_v8_ax.jpg">❤️ Add to Favorite</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="media-card" data-genres="fantasy,adventure" data-countries="usa" data-year="2000s" data-trailer-key="TcMBFSGVi1c" data-imdb-rating="9.3">
+            <img src="https://m.media-amazon.com/images/I/61Wps+FMG-L._UF1000,1000_QL80_.jpg" alt="Avatar: The Last Airbender" class="img-fluid">
+            <div>
+              <h3>Avatar: The Last Airbender</h3>
+              <p><b>Genre:</b> Fantasy, Adventure</p>
+              <p><b>Country:</b> USA</p>
+              <p><b>IMDb Rating:</b> ⭐ 9.3/10</p>
+              <div class="user-rating">
+                <p class="mb-1">Your Rating:</p>
+                <div class="rating">
+                  <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+                </div>
+                <p class="user-rating-message text-danger">Click a star to rate!</p>
+              </div>
+              <button class="favorite-btn" data-title="Avatar: The Last Airbender" data-image="https://m.media-amazon.com/images/I/61Wps+FMG-L._UF1000,1000_QL80_.jpg">❤️ Add to Favorite</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="media-card rateable-card" data-genres="action,adventure,sci-fi" data-countries="usa" data-year="2000s" data-trailer-key="TcMBFSGVi1c" data-imdb-rating="8.5">
+            <img src="images/samurai.jpg" alt="Samurai Jack Poster" class="img-fluid">
+            <div>
+              <h3>Samurai Jack (2001–2017)</h3>
+              <p><b>Genre:</b> Action, Adventure, Sci-Fi</p>
+              <p><b>Country:</b> USA</p>
+              <p><b>IMDb Rating:</b> ⭐ 8.5/10</p>
+              <div class="user-rating">
+                <p class="mb-1">Your Rating:</p>
+                <div class="rating">
+                  <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+                </div>
+                <p class="user-rating-message text-danger">Click a star to rate!</p>
+              </div>
+              <button class="favorite-btn" data-title="Samurai Jack (2001–2017)" data-image="images/samurai.jpg">❤️ Add to Favorite</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="media-card rateable-card" data-genres="animation,action,crime,fantasy" data-countries="usa" data-year="2020s" data-trailer-key="TcMBFSGVi1c" data-imdb-rating="9.0">
+            <img src="images/arcanee.jpg" alt="Arcane Poster" class="img-fluid">
+            <div>
+              <h3>Arcane (2021–present)</h3>
+              <p><b>Genre:</b> Animation, Action, Crime, Fantasy</p>
+              <p><b>Country:</b> USA</p>
+              <p><b>IMDb Rating:</b> ⭐ 9.0/10</p>
+              <div class="user-rating">
+                <p class="mb-1">Your Rating:</p>
+                <div class="rating">
+                  <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+                </div>
+                <p class="user-rating-message text-danger">Click a star to rate!</p>
+              </div>
+              <button class="favorite-btn" data-title="Arcane (2021–present)" data-image="images/arcanee.jpg">❤️ Add to Favorite</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="media-card rateable-card" data-genres="animation,drama,action,history" data-countries="usa" data-year="2020s" data-trailer-key="TcMBFSGVi1c" data-imdb-rating="8.8">
+            <img src="images/blueye.jpg" alt="Blue Eye Samurai Poster" class="img-fluid">
+            <div>
+              <h3>Blue Eye Samurai (2023–present)</h3>
+              <p><b>Genre:</b> Animation, Drama, Action, History</p>
+              <p><b>Country:</b> USA</p>
+              <p><b>IMDb Rating:</b> ⭐ 8.8/10</p>
+              <div class="user-rating">
+                <p class="mb-1">Your Rating:</p>
+                <div class="rating">
+                  <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+                </div>
+                <p class="user-rating-message text-danger">Click a star to rate!</p>
+              </div>
+              <button class="favorite-btn" data-title="Blue Eye Samurai (2023–present)" data-image="images/blueye.jpg">❤️ Add to Favorite</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="media-card rateable-card" data-genres="history,drama,action" data-countries="ireland-canada" data-year="2010s" data-trailer-key="TcMBFSGVi1c" data-imdb-rating="8.5">
+            <img src="images/vikings.jpg" alt="Vikings Poster" class="img-fluid">
+            <div>
+              <h3>Vikings (2013–2020)</h3>
+              <p><b>Genre:</b> History, Drama, Action</p>
+              <p><b>Country:</b> Ireland, Canada</p>
+              <p><b>IMDb Rating:</b> ⭐ 8.5/10</p>
+              <div class="user-rating">
+                <p class="mb-1">Your Rating:</p>
+                <div class="rating">
+                  <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+                </div>
+                <p class="user-rating-message text-danger">Click a star to rate!</p>
+              </div>
+              <button class="favorite-btn" data-title="Vikings (2013–2020)" data-image="images/vikings.jpg">❤️ Add to Favorite</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="media-card rateable-card" data-genres="animation,action,history,fantasy" data-countries="usa" data-year="2010s" data-trailer-key="TcMBFSGVi1c" data-imdb-rating="8.3">
+            <img src="images/castlevania.jpg" alt="Castlevania Poster" class="img-fluid">
+            <div>
+              <h3>Castlevania (2017–2021)</h3>
+              <p><b>Genre:</b> Animation, Action, History, Fantasy</p>
+              <p><b>Country:</b> USA</p>
+              <p><b>IMDb Rating:</b> ⭐ 8.3/10</p>
+              <div class="user-rating">
+                <p class="mb-1">Your Rating:</p>
+                <div class="rating">
+                  <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+                </div>
+                <p class="user-rating-message text-danger">Click a star to rate!</p>
+              </div>
+              <button class="favorite-btn" data-title="Castlevania (2017–2021)" data-image="images/castlevania.jpg">❤️ Add to Favorite</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="media-card rateable-card" data-genres="animation,comedy,adventure,family" data-countries="turkey" data-year="2010s" data-trailer-key="TcMBFSGVi1c" data-imdb-rating="6.0">
+            <img src="images/kingsakyr.jpg" alt="Kral Şakir Poster" class="img-fluid">
+            <div>
+              <h3>King Şakir (Kral Şakir) (2016–present)</h3>
+              <p><b>Genre:</b> Animation, Comedy, Adventure, Family</p>
+              <p><b>Country:</b> Turkey</p>
+              <p><b>IMDb Rating:</b> ⭐ 6.0/10</p>
+              <div class="user-rating">
+                <p class="mb-1">Your Rating:</p>
+                <div class="rating">
+                  <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+                </div>
+                <p class="user-rating-message text-danger">Click a star to rate!</p>
+              </div>
+              <button class="favorite-btn" data-title="King Şakir (2016–present)" data-image="images/kingsakyr.jpg">❤️ Add to Favorite</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="media-card rateable-card" data-genres="animation,action,drama,comedy" data-countries="south-korea" data-year="2020s" data-trailer-key="TcMBFSGVi1c" data-imdb-rating="7.6">
+            <img src="images/look.jpg" alt="Lookism Poster" class="img-fluid">
+            <div>
+              <h3>Lookism (2022–present)</h3>
+              <p><b>Genre:</b> Animation, Action, Drama, Comedy</p>
+              <p><b>Country:</b> South Korea</p>
+              <p><b>IMDb Rating:</b> ⭐ 7.6/10</p>
+              <div class="user-rating">
+                <p class="mb-1">Your Rating:</p>
+                <div class="rating">
+                  <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+                </div>
+                <p class="user-rating-message text-danger">Click a star to rate!</p>
+              </div>
+              <button class="favorite-btn" data-title="Lookism (2022–present)" data-image="images/look.jpg">❤️ Add to Favorite</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="media-card rateable-card" data-genres="animation,family,comedy" data-countries="russia" data-year="2000s" data-trailer-key="TcMBFSGVi1c" data-imdb-rating="6.9">
+            <img src="images/masha.jpg" alt="Masha and the Bear Poster" class="img-fluid">
+            <div>
+              <h3>Masha and the Bear (2009–present)</h3>
+              <p><b>Genre:</b> Animation, Family, Comedy</p>
+              <p><b>Country:</b> Russia</p>
+              <p><b>IMDb Rating:</b> ⭐ 6.9/10</p>
+              <div class="user-rating">
+                <p class="mb-1">Your Rating:</p>
+                <div class="rating">
+                  <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+                </div>
+                <p class="user-rating-message text-danger">Click a star to rate!</p>
+              </div>
+              <button class="favorite-btn" data-title="Masha and the Bear (2009–present)" data-image="images/masha.jpg">❤️ Add to Favorite</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="media-card" data-genres="sci-fi,comedy" data-countries="usa" data-year="2010s" data-trailer-key="TcMBFSGVi1c" data-imdb-rating="9.1">
+            <img src="https://m.media-amazon.com/images/M/MV5BZGQyZjk2MzMtMTcyNC00NGU3LTlmNjItNDExMWM4ZDFhYmQ2XkEyXkFqcGc@._V1_.jpg" alt="Rick and Morty" class="img-fluid">
+            <div>
+              <h3>Rick and Morty</h3>
+              <p><b>Genre:</b> Sci-Fi, Comedy</p>
+              <p><b>Country:</b> USA</p>
+              <p><b>IMDb Rating:</b> ⭐ 9.1/10</p>
+              <div class="user-rating">
+                <p class="mb-1">Your Rating:</p>
+                <div class="rating">
+                  <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+                  <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+                </div>
+                <p class="user-rating-message text-danger">Click a star to rate!</p>
+              </div>
+              <button class="favorite-btn" data-title="Rick and Morty" data-image="https://m.media-amazon.com/images/M/MV5BZGQyZjk2MzMtMTcyNC00NGU3LTlmNjItNDExMWM4ZDFhYmQ2XkEyXkFqcGc@._V1_.jpg">❤️ Add to Favorite</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-light mt-auto pt-5 pb-3 border-top border-secondary">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4 mb-lg-0 footer-section">
+          <h3 class="text-danger border-bottom border-secondary pb-2 mb-3">About MyFlix</h3>
+          <p>MyFlix is your homepage for trending movies, series, and cartoons. We strive to provide the best content in a simple and user-friendly format.</p>
+        </div>
+        <div class="col-lg-3 offset-lg-1 mb-4 mb-lg-0 footer-section">
+          <h3 class="text-danger border-bottom border-secondary pb-2 mb-3">Quick Links</h3>
+          <ul class="list-unstyled">
+            <li><a href="cartoons.html" class="text-decoration-none text-light">Cartoons</a></li>
+            <li><a href="movies.html" class="text-decoration-none text-light">Movies</a></li>
+            <li><a href="series.html" class="text-decoration-none text-light">Series</a></li>
+            <li><a href="contact.html" class="text-decoration-none text-light">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 footer-section">
+          <h3 class="text-danger border-bottom border-secondary pb-2 mb-3">Connect With Us</h3>
+          <p><i class="fas fa-phone text-danger me-2"></i> Phone: 87053915895</p>
+          <p><i class="fas fa-envelope text-danger me-2"></i> Email: farida02.03@icloud.com</p>
+          <div class="social-links d-flex gap-3 mt-3">
+            <a href="https://instagram.com/farideepl" target="_blank" aria-label="Instagram" class="**social-icon-btn** rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;"><i class="fab fa-instagram fs-5 **text-danger**"></i></a>
+            <a href="https://www.tiktok.com/@farideepl" target="_blank" aria-label="TikTok" class="**social-icon-btn** rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;"><i class="fab fa-tiktok fs-5 **text-danger**"></i></a>
+            <a href="https://t.me/fari_davv" target="_blank" aria-label="Telegram" class="**social-icon-btn** rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;"><i class="fab fa-telegram-plane fs-5 **text-danger**"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom text-center pt-3 mt-4 border-top border-secondary">
+        &copy; Group Members: Alua Sagyndyk, Altynay Bolatova, Farida Dovletbaeva — 2025 MyFlix
+      </div>
+    </div>
+  </footer>
+
+  <div class="custom-modal-backdrop" id="trailerModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog-custom">
+      <div class="modal-content-custom">
+        <div class="modal-body-custom">
+          <div id="video-container" class="ratio-16x9"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="search.js"></script>
+  <script src="rating.js"></script>
+  <script src="theme-switcher.js"></script>
+  <script src="navKeyboard.js"></script>
+  <script src="filtering.js"></script>
+  <script src="favorites.js" defer></script>
+  <script src="trailer.js"></script>
 </body>
 </html>

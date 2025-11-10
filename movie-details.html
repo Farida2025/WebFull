@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Details</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .movie-container {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+    }
+    .movie-poster {
+      border-radius: 12px;
+      max-width: 300px;
+      width: 100%;
+    }
+    .info-title {
+      color: #ff4444;
+      border-bottom: 2px solid #ff4444;
+      display: inline-block;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+    }
+    .movie-meta p {
+      margin: 6px 0;
+      font-size: 1.05rem;
+    }
+    .cast-list span {
+      background: #222;
+      border-radius: 20px;
+      padding: 6px 14px;
+      margin: 4px;
+      display: inline-block;
+      font-size: 0.95rem;
+    }
+    .backdrop {
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px) brightness(0.4);
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    .content-overlay {
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="backdrop" id="backdrop"></div>
+
+  <div class="container py-5 content-overlay">
+    <button class="btn btn-outline-light mb-4" onclick="window.history.back()">← Back</button>
+
+    <div id="movie-details" class="movie-container d-flex flex-column flex-md-row gap-4 align-items-start"></div>
+  </div>
+
+  <script>
+    const API_KEY = "6d9225fc";
+    const params = new URLSearchParams(window.location.search);
+    const movieTitle = params.get("title");
+
+    async function fetchMovieDetails() {
+      const url = `https://www.omdbapi.com/?apikey=${API_KEY}&t=${encodeURIComponent(movieTitle)}&plot=full`;
+      const res = await fetch(url);
+      const data = await res.json();
+
+      if (data.Response === "True") {
+        document.getElementById("backdrop").style.backgroundImage = `url('${data.Poster}')`;
+
+        const actors = data.Actors.split(", ").map(actor => `<span>${actor}</span>`).join("");
+
+        document.getElementById("movie-details").innerHTML = `
+          <img src="${data.Poster}" alt="${data.Title}" class="movie-poster shadow-lg">
+          <div class="movie-meta">
+            <h2 class="text-danger mb-3">${data.Title} (${data.Year})</h2>
+            <p><strong>🎭 Genre:</strong> ${data.Genre}</p>
+            <p><strong>⭐ IMDb Rating:</strong> ${data.imdbRating}</p>
+            <p><strong>🎬 Director:</strong> ${data.Director}</p>
+            <p><strong>🖊️ Writer:</strong> ${data.Writer}</p>
+            <div class="mt-3">
+              <h5 class="info-title">Main Cast</h5>
+              <div class="cast-list">${actors}</div>
+            </div>
+            <div class="mt-4">
+              <h5 class="info-title">Plot</h5>
+              <p>${data.Plot}</p>
+            </div>
+            <div class="mt-4">
+              <h5 class="info-title">Country</h5>
+              <p>${data.Country}</p>
+              <h5 class="info-title mt-3">Language</h5>
+              <p>${data.Language}</p>
+              <h5 class="info-title mt-3">Awards</h5>
+              <p>${data.Awards}</p>
+            </div>
+          </div>
+        `;
+      } else {
+        document.getElementById("movie-details").innerHTML = `<p class="text-danger">Movie not found 😢</p>`;
+      }
+    }
+
+    fetchMovieDetails();
+  </script>
+  
+</body>
+</html>

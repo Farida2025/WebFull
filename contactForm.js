@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector(".contact-form");
   const submitBtn = form.querySelector(".submit-button");
 
-  // Create dynamic elements for feedback
   const successMessage = document.createElement("div");
   successMessage.className = "success-message";
   successMessage.textContent = "✅ Message sent successfully!";
@@ -13,13 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
   errorMessage.textContent = "⚠ Please fill out all required fields correctly.";
   form.appendChild(errorMessage);
 
-  // Validation function
   function validateForm() {
     const name = form.querySelector("#full-name").value.trim();
     const email = form.querySelector("#email").value.trim();
     const message = form.querySelector("#message").value.trim();
 
-    // Simple email regex
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (name === "" || email === "" || message === "" || !emailPattern.test(email)) {
@@ -32,20 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
     return true;
   }
 
-  // Submit handler
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     if (!validateForm()) return;
 
-    // Show spinner
     const originalBtnText = submitBtn.innerHTML;
     submitBtn.innerHTML = `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Please wait...`;
     submitBtn.disabled = true;
 
-    // Simulate server request
     setTimeout(() => {
-      // Send data (fake async)
       fetch("https://jsonplaceholder.typicode.com/posts", {
         method: "POST",
         body: JSON.stringify({
@@ -71,6 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
           submitBtn.innerHTML = originalBtnText;
           submitBtn.disabled = false;
         });
-    }, 1500); // fake delay
+    }, 1500); 
   });
 });
