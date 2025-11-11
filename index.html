@@ -16,7 +16,7 @@
         <div class="container-fluid d-flex justify-content-between align-items-center px-4 px-lg-5">
             <div class="photo">
                 <a href="index.html">
-                    <img src="images/logo.jpg" data-light="images/whitelogo.jpg" alt="MyFlex Logo" class="logo" style="width: 100px; height: auto;" />
+                    <img src="images/logo.jpg" data-light="images/whitelogo.jpg" alt="MyFlix Logo" class="logo" style="width: 100px; height: auto;" />
                 </a>
             </div>
             <nav class="navbar navbar-expand-lg navbar-dark p-0" aria-label="Main Navigation">
@@ -25,13 +25,27 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav gap-2 gap-lg-4 align-items-center">
-                        <li class="nav-item"><a class="nav-link active text-danger" aria-current="page" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="movies.html">Movies</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="series.html">Series</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="cartoons.html">Cartoons</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="news.html">News</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="favorites.html">Favorites</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-danger" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="movies.html">Movies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="series.html">Series</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="cartoons.html">Cartoons</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="news.html">News</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="favorites.html">Favorites</a>
+                        </li>
                         <li class="nav-item">
                             <button class="btn btn-danger nav-button mt-2 mt-lg-0 px-3" id="openAccessModal">Sign Up</button>
                         </li>
@@ -42,12 +56,74 @@
     </header>
 
     <main class="flex-grow-1">
+        
         <div class="hero-banner mb-5" style="background-image: url('images/index-image.jpg');">
             <h1 class="text-always-white display-3 fw-bold p-3 rounded text-center">Welcome to MyFlex</h1>
         </div>
 
         <div class="container-fluid px-4 px-lg-5">
-            <!-- Your existing content sections here -->
+            <section class="content-section mb-5">
+                <h2 class="text-center mb-4">Movies in trend</h2>
+                <div class="gallery-wrapper position-relative"> 
+                    <button class="scroll-button left-arrow" aria-label="Scroll Left" data-target="movies-track">&#10094;</button>
+                    <div class="gallery-track scrollable" id="movies-track"> 
+                        <article class="movie-card"><img src="images/28years.jpg" alt="28 years later"></article>
+                        <article class="movie-card"><img src="images/backinaction.jpg" alt="Back In Action"></article>
+                        <article class="movie-card"><img src="images/f1.jpg" alt="F1"></article>
+                        <article class="movie-card"><img src="images/journey2.jpeg" alt="Journey 2"></article>
+                        <article class="movie-card"><img src="images/materialists.jpeg" alt="Materialists"></article>
+                        <article class="movie-card"><img src="images/thepickup.jpg" alt="The Pickup"></article>
+                        <article class="movie-card"><img src="images/magnseven.jpg" alt="The Magnificent Seven"></article>
+                        <article class="movie-card"><img src="images/steve.jpg" alt="Steve"></article>
+                        <article class="movie-card"><img src="images/thetomorrowwar.webp" alt="The Tomorrow War"></article>
+                        <article class="movie-card"><img src="images/thewoman.jpg" alt="The Woman"></article>
+                        <article class="movie-card"><img src="images/waroftheworls.jpg" alt="War of the Worlds"></article>
+                    </div>
+                    <button class="scroll-button right-arrow" aria-label="Scroll Right" data-target="movies-track">&#10095;</button>
+                </div>
+            </section>
+
+            <section class="content-section mb-5">
+                <h2 class="text-center mb-4">Popular series</h2>
+                <div class="gallery-wrapper position-relative">
+                    <button class="scroll-button left-arrow" aria-label="Scroll Left" data-target="series-track">&#10094;</button>
+                    <div class="gallery-track scrollable" id="series-track">
+                        <article class="movie-card"><img src="images/1899.jpg" alt="1899"></article>
+                        <article class="movie-card"><img src="images/breakingbad.jpg" alt="Breaking Bad"></article>
+                        <article class="movie-card"><img src="images/Detectives.jpg" alt="Detectives"></article>
+                        <article class="movie-card"><img src="images/elite.webp" alt="Elite"></article>
+                        <article class="movie-card"><img src="images/sabrina.webp" alt="Sabrina"></article>
+                        <article class="movie-card"><img src="images/stranger.jpg" alt="Stranger Things"></article>
+                        <article class="movie-card"><img src="images/shadow.jpg" alt="Shadow"></article>
+                        <article class="movie-card"><img src="images/slasher.webp" alt="Slasher"></article>
+                        <article class="movie-card"><img src="images/adolescence.jpg" alt="Adolescence"></article>
+                        <article class="movie-card"><img src="images/bunker.jpg" alt="Bunker"></article>
+                        <article class="movie-card"><img src="images/thewitcher.jpg" alt="The Witcher"></article>
+                        <article class="movie-card"><img src="images/you.jpg" alt="You"></article>
+                    </div>
+                    <button class="scroll-button right-arrow" aria-label="Scroll Right" data-target="series-track">&#10095;</button>
+                </div>
+            </section>
+
+            <section class="content-section mb-5">
+                <h2 class="text-center mb-4">New cartoons</h2>
+                <div class="gallery-wrapper position-relative">
+                    <button class="scroll-button left-arrow" aria-label="Scroll Left" data-target="cartoons-track">&#10094;</button>
+                    <div class="gallery-track scrollable" id="cartoons-track">
+                        <article class="movie-card"><img src="images/arcanee.jpg" alt="Arcane"></article>
+                        <article class="movie-card"><img src="images/cat.jpg" alt="Cat"></article>
+                        <article class="movie-card"><img src="images/hazbin.jpg" alt="Hazbin Hotel"></article>
+                        <article class="movie-card"><img src="images/Madagascar_2.jpg" alt="Madagascar 2"></article>
+                        <article class="movie-card"><img src="images/minions.jpg" alt="Minions"></article>
+                        <article class="movie-card"><img src="images/garfiels.jpg" alt="Garfield"></article>
+                        <article class="movie-card"><img src="images/teens.jpg" alt="Teen Titans"></article>
+                        <article class="movie-card"><img src="images/stevenuni.jpg" alt="Steven Universe"></article>
+                        <article class="movie-card"><img src="images/spongebob.jpg" alt="Spongebob"></article>
+                        <article class="movie-card"><img src="images/megamind.jpg" alt="Megamind"></article>
+                    </div>
+                    <button class="scroll-button right-arrow" aria-label="Scroll Right" data-target="cartoons-track">&#10095;</button>
+                </div>
+            </section>
         </div>
     </main>
 
@@ -123,12 +199,83 @@
         </div>
     </div>
 
+    <div class="container-fluid px-4 px-lg-5">
+        <section class="content-section mb-5">
+            <h2 class="text-center mb-4">Frequently Asked Questions (FAQ)</h2>
+            <div class="accordion-container">
+                <div class="accordion-item">
+                    <button class="accordion-header text-start w-100 p-3" aria-expanded="false" aria-controls="content1">
+                        <span class="text-danger me-2">Q:</span> How do I start watching content on MyFlex? <i class="fas fa-chevron-down float-end"></i>
+                    </button>
+                    <div class="accordion-content" id="content1">
+                        <p class="p-3 mb-0">Simply sign up by clicking the "Sign Up" button in the header or log into your existing account. Once you do, you'll gain access to our entire library of movies, series, and cartoons.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header text-start w-100 p-3" aria-expanded="false" aria-controls="content2">
+                        <span class="text-danger me-2">Q:</span> Does MyFlex require a subscription or is it free? <i class="fas fa-chevron-down float-end"></i>
+                    </button>
+                    <div class="accordion-content" id="content2">
+                        <p class="p-3 mb-0">MyFlex offers a free basic access with ads, as well as a premium ad-free subscription with extra features (coming soon).</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header text-start w-100 p-3" aria-expanded="false" aria-controls="content3">
+                        <span class="text-danger me-2">Q:</span> How often is the catalog updated? <i class="fas fa-chevron-down float-end"></i>
+                    </button>
+                    <div class="accordion-content" id="content3">
+                        <p class="p-3 mb-0">We regularly add new movies and series episodes every week to ensure our content always stays fresh and current.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
     <footer class="text-light mt-auto pt-5 pb-3 border-top border-secondary">
-        <!-- Your existing footer content -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0 footer-section">
+                    <h3 class="text-danger border-bottom border-secondary pb-2 mb-3">About MyFlix</h3>
+                    <p>
+                        MyFlix is your homepage for trending movies, series, and cartoons. We strive to provide the best content in a simple and user-friendly format.
+                    </p>
+                </div>
+
+                <div class="col-lg-3 offset-lg-1 mb-4 mb-lg-0 footer-section">
+                    <h3 class="text-danger border-bottom border-secondary pb-2 mb-3">Quick Links</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="cartoons.html" class="text-decoration-none text-light">Cartoons</a></li>
+                        <li><a href="movies.html" class="text-decoration-none text-light">Movies</a></li>
+                        <li><a href="series.html" class="text-decoration-none text-light">Series</a></li>
+                        <li><a href="contact.html" class="text-decoration-none text-light">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 footer-section">
+                    <h3 class="text-danger border-bottom border-secondary pb-2 mb-3">Connect With Us</h3>
+                    <div class="contact mb-3">
+                        <p class="mb-1"><i class="icon fas fa-phone text-danger me-2"></i> Phone: 87053915895</p>
+                        <p class="mb-1"><i class="icon fas fa-envelope text-danger me-2"></i> Email: farida02.03@icloud.com</p>
+                    </div>
+                    
+                    <div class="social-links d-flex gap-3 mt-3">
+                        <a href="https://instagram.com/farideepl" target="_blank" aria-label="Instagram" class="social-icon-btn rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;"><i class="fab fa-instagram fs-5 text-danger"></i></a>
+                        <a href="https://www.tiktok.com/@farideepl" target="_blank" aria-label="TikTok" class="social-icon-btn rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;"><i class="fab fa-tiktok fs-5 text-danger"></i></a>
+                        <a href="https://t.me/fari_davv" target="_blank" aria-label="Telegram" class="social-icon-btn rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;"><i class="fab fa-telegram-plane fs-5 text-danger"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom text-center pt-3 mt-4 border-top border-secondary">
+                &copy; Group Members: Alua Sagyndyk, Altynay Bolatova, Farida Dovletbaeva — 2025 MyFlix
+            </div>
+        </div>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     
     <script>
     // Authentication functionality
