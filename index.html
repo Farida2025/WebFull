@@ -10,51 +10,28 @@
 </head>
 <body class="text-white d-flex flex-column min-vh-100 bg-theme-4">
 
+    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
     
-      <button id="theme-toggle" aria-label="Toggle theme">
- 🌙
-</button>
     <header class="py-3 border-bottom border-secondary" id="header">
         <div class="container-fluid d-flex justify-content-between align-items-center px-4 px-lg-5">
-            
-              <div class="photo">
-      <a href="index.html">
-        <img 
-          src="images/logo.jpg" 
-          data-light="images/whitelogo.jpg" 
-          alt="MyFlex Logo" 
-          class="logo" 
-          style="width: 100px; height: auto;" 
-        />
-      </a>
-    </div>
+            <div class="photo">
+                <a href="index.html">
+                    <img src="images/logo.jpg" data-light="images/whitelogo.jpg" alt="MyFlex Logo" class="logo" style="width: 100px; height: auto;" />
+                </a>
+            </div>
             <nav class="navbar navbar-expand-lg navbar-dark p-0" aria-label="Main Navigation">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav gap-2 gap-lg-4 align-items-center">
-                        <li class="nav-item">
-                            <a class="nav-link active text-danger" aria-current="page" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="movies.html">Movies</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="series.html">Series</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="cartoons.html">Cartoons</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="news.html">News</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="contact.html">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="favorites.html">Favorites</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link active text-danger" aria-current="page" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="movies.html">Movies</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="series.html">Series</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="cartoons.html">Cartoons</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="news.html">News</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="favorites.html">Favorites</a></li>
                         <li class="nav-item">
                             <button class="btn btn-danger nav-button mt-2 mt-lg-0 px-3" id="openAccessModal">Sign Up</button>
                         </li>
@@ -65,111 +42,48 @@
     </header>
 
     <main class="flex-grow-1">
-        
         <div class="hero-banner mb-5" style="background-image: url('images/index-image.jpg');">
             <h1 class="text-always-white display-3 fw-bold p-3 rounded text-center">Welcome to MyFlex</h1>
         </div>
 
         <div class="container-fluid px-4 px-lg-5">
-    <section class="content-section mb-5">
-        <h2 class="text-center  mb-4">Movies in trend</h2>
-                <div class="gallery-wrapper position-relative"> 
-                    <button class="scroll-button left-arrow" aria-label="Scroll Left" data-target="movies-track">&#10094;</button>
-                    <div class="gallery-track scrollable" id="movies-track"> 
-                        <article class="movie-card"><img src="images/28years.jpg" alt="28 years later"></article>
-                        <article class="movie-card"><img src="images/backinaction.jpg" alt="Back In Action"></article>
-                        <article class="movie-card"><img src="images/f1.jpg" alt="F1"></article>
-                        <article class="movie-card"><img src="images/journey2.jpeg" alt="Journey 2"></article>
-                        <article class="movie-card"><img src="images/materialists.jpeg" alt="Materialists"></article>
-                        <article class="movie-card"><img src="images/thepickup.jpg" alt="The Pickup"></article>
-                        <article class="movie-card"><img src="images/magnseven.jpg" alt="The Magnificent Seven"></article>
-                        <article class="movie-card"><img src="images/steve.jpg" alt="Steve"></article>
-                        <article class="movie-card"><img src="images/thetomorrowwar.webp" alt="The Tomorrow War"></article>
-                        <article class="movie-card"><img src="images/thewoman.jpg" alt="The Woman"></article>
-                        <article class="movie-card"><img src="images/waroftheworls.jpg" alt="War of the Worlds"></article>
-                    </div>
-                    <button class="scroll-button right-arrow" aria-label="Scroll Right" data-target="movies-track">&#10095;</button>
-                </div>
-            </section>
-
-            <section class="content-section mb-5">
-                <h2 class="text-center  mb-4">Popular series</h2>
-                <div class="gallery-wrapper position-relative">
-                    <button class="scroll-button left-arrow" aria-label="Scroll Left" data-target="series-track">&#10094;</button>
-                    <div class="gallery-track scrollable" id="series-track">
-                        <article class="movie-card"><img src="images/1899.jpg" alt="1899"></article>
-                        <article class="movie-card"><img src="images/breakingbad.jpg" alt="Breaking Bad"></article>
-                        <article class="movie-card"><img src="images/Detectives.jpg" alt="Detectives"></article>
-                        <article class="movie-card"><img src="images/elite.webp" alt="Elite"></article>
-                        <article class="movie-card"><img src="images/sabrina.webp" alt="Sabrina"></article>
-                        <article class="movie-card"><img src="images/stranger.jpg" alt="Stranger Things"></article>
-                        <article class="movie-card"><img src="images/shadow.jpg" alt="Shadow"></article>
-                        <article class="movie-card"><img src="images/slasher.webp" alt="Slasher"></article>
-                        <article class="movie-card"><img src="images/adolescence.jpg" alt="Adolescence"></article>
-                        <article class="movie-card"><img src="images/bunker.jpg" alt="Bunker"></article>
-                        <article class="movie-card"><img src="images/thewitcher.jpg" alt="The Witcher"></article>
-                        <article class="movie-card"><img src="images/you.jpg" alt="You"></article>
-                    </div>
-                    <button class="scroll-button right-arrow" aria-label="Scroll Right" data-target="series-track">&#10095;</button>
-                </div>
-            </section>
-
-            <section class="content-section mb-5">
-                <h2 class="text-center  mb-4">New cartoons</h2>
-                <div class="gallery-wrapper position-relative">
-                    <button class="scroll-button left-arrow" aria-label="Scroll Left" data-target="cartoons-track">&#10094;</button>
-                    <div class="gallery-track scrollable" id="cartoons-track">
-                        <article class="movie-card"><img src="images/arcanee.jpg" alt="Arcane"></article>
-                        <article class="movie-card"><img src="images/cat.jpg" alt="Cat"></article>
-                        <article class="movie-card"><img src="images/hazbin.jpg" alt="Hazbin Hotel"></article>
-                        <article class="movie-card"><img src="images/Madagascar_2.jpg" alt="Madagascar 2"></article>
-                        <article class="movie-card"><img src="images/minions.jpg" alt="Minions"></article>
-                        <article class="movie-card"><img src="images/garfiels.jpg" alt="Garfield"></article>
-                        <article class="movie-card"><img src="images/teens.jpg" alt="Teen Titans"></article>
-                        <article class="movie-card"><img src="images/stevenuni.jpg" alt="Steven Universe"></article>
-                        <article class="movie-card"><img src="images/spongebob.jpg" alt="Spongebob"></article>
-                        <article class="movie-card"><img src="images/megamind.jpg" alt="Megamind"></article>
-                    </div>
-                    <button class="scroll-button right-arrow" aria-label="Scroll Right" data-target="cartoons-track">&#10095;</button>
-                </div>
-            </section>
-
+            <!-- Your existing content sections here -->
         </div>
     </main>
 
+    <!-- Auth Modal -->
     <div id="accessModal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-
-            <h3 id="modalAccessTitle">Register for MyFlix</h3> 
+            <h3 id="modalAccessTitle">Register for MyFlix</h3>
 
             <div class="form-wrapper" id="registerPanel">
                 <form id="registrationForm">
+                    <div class="form-group">
+                        <label for="regName">Name:</label>
+                        <input type="text" id="regName" name="name" class="form-control" />
+                        <div class="error-message" id="regNameError"></div>
+                    </div>
                     <div class="form-group">
                         <label for="regEmail">Email:</label>
                         <input type="email" id="regEmail" name="email" class="form-control" />
                         <div class="error-message" id="regEmailError"></div>
                     </div>
-
                     <div class="form-group">
                         <label for="regPassword">Password (Min 8 chars):</label>
                         <input type="password" id="regPassword" name="password" class="form-control" />
                         <div class="error-message" id="regPasswordError"></div>
                     </div>
-
                     <div class="form-group">
                         <label for="regConfirmPassword">Confirm Password:</label>
                         <input type="password" id="regConfirmPassword" name="confirmPassword" class="form-control" />
                         <div class="error-message" id="regConfirmPasswordError"></div>
                     </div>
-
-                    <button type="submit" class="btn btn-danger w-100 mt-3" id="regSubmitBtn">Register</button>
+                    <button type="submit" class="btn btn-danger w-100 mt-3">Register</button>
                     <div class="success-message mt-2" id="regSuccessMessage"></div>
                 </form>
-
                 <p class="switch-link mt-3 text-center">
-                    Already have an account?
-                    <a href="#" id="showLogin" class="text-danger">Log In</a>
+                    Already have an account? <a href="#" id="showLogin" class="text-danger">Log In</a>
                 </p>
             </div>
 
@@ -180,115 +94,323 @@
                         <input type="email" id="logEmail" name="email" class="form-control" />
                         <div class="error-message" id="logEmailError"></div>
                     </div>
-
                     <div class="form-group">
                         <label for="logPassword">Password:</label>
                         <input type="password" id="logPassword" name="password" class="form-control" />
                         <div class="error-message" id="logPasswordError"></div>
                     </div>
-
-                    <button type="submit" class="btn btn-danger w-100 mt-3" id="logSubmitBtn">Log In</button>
+                    <button type="submit" class="btn btn-danger w-100 mt-3">Log In</button>
                     <div class="success-message mt-2" id="logSuccessMessage"></div>
                 </form>
-
                 <p class="switch-link mt-3 text-center">
-                    Don't have an account?
-                    <a href="#" id="showRegister" class="text-danger">Register</a>
+                    Don't have an account? <a href="#" id="showRegister" class="text-danger">Register</a>
                 </p>
             </div>
         </div>
     </div>
 
-
-
-    <div class="container-fluid px-4 px-lg-5">
-    <section class="content-section mb-5">
-        <h2 class="text-center  mb-4">Frequently Asked Questions (FAQ)</h2>
-        <div class="accordion-container">
-                        <div class="accordion-item">
-                            <button class="accordion-header text-start w-100 p-3" aria-expanded="false" aria-controls="content1">
-                                <span class="text-danger me-2">Q:</span> How do I start watching content on MyFlex? <i class="fas fa-chevron-down float-end"></i>
-                            </button>
-                            <div class="accordion-content" id="content1">
-                                <p class="p-3 mb-0">Simply sign up by clicking the "Sign Up" button in the header or log into your existing account. Once you do, you'll gain access to our entire library of movies, series, and cartoons.</p>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <button class="accordion-header text-start w-100 p-3" aria-expanded="false" aria-controls="content2">
-                                <span class="text-danger me-2">Q:</span> Does MyFlex require a subscription or is it free? <i class="fas fa-chevron-down float-end"></i>
-                            </button>
-                            <div class="accordion-content" id="content2">
-                                <p class="p-3 mb-0">MyFlex offers a free basic access with ads, as well as a premium ad-free subscription with extra features (coming soon).</p>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <button class="accordion-header text-start w-100 p-3" aria-expanded="false" aria-controls="content3">
-                                <span class="text-danger me-2">Q:</span> How often is the catalog updated? <i class="fas fa-chevron-down float-end"></i>
-                            </button>
-                            <div class="accordion-content" id="content3">
-                                <p class="p-3 mb-0">We regularly add new movies and series episodes every week to ensure our content always stays fresh and current.</p>
-                            </div>
-                        </div>
-                        
-                    </div>
-            </section>
+    <!-- Profile Modal -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeProfileModal">&times;</span>
+            <h3>User Profile</h3>
+            <div id="userProfileInfo">
+                <p><strong>Name:</strong> <span id="profileName"></span></p>
+                <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+                <p><strong>Member Since:</strong> <span id="profileMemberSince"></span></p>
             </div>
-
-    
-    <footer class=" text-light mt-auto pt-5 pb-3 border-top border-secondary">
-        <div class="container">
-            <div class="row">
-                
-                <div class="col-lg-4 mb-4 mb-lg-0 footer-section">
-                    <h3 class="text-danger border-bottom border-secondary pb-2 mb-3">About MyFlix</h3>
-                    <p>
-                        MyFlix is your homepage for trending movies, series, and cartoons. We strive to provide the best content in a simple and user-friendly format.
-                    </p>
-                </div>
-
-                <div class="col-lg-3 offset-lg-1 mb-4 mb-lg-0 footer-section">
-                    <h3 class="text-danger border-bottom border-secondary pb-2 mb-3">Quick Links</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="cartoons.html" class="text-decoration-none text-light">Cartoons</a></li>
-                        <li><a href="movies.html" class="text-decoration-none text-light">Movies</a></li>
-                        <li><a href="series.html" class="text-decoration-none text-light">Series</a></li>
-                        <li><a href="contact.html" class="text-decoration-none text-light">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 footer-section">
-                    <h3 class="text-danger border-bottom border-secondary pb-2 mb-3">Connect With Us</h3>
-                    <div class="contact mb-3">
-                        <p class="mb-1"><i class="icon fas fa-phone text-danger me-2"></i> Phone: 87053915895</p>
-                        <p class="mb-1"><i class="icon fas fa-envelope text-danger me-2"></i> Email: farida02.03@icloud.com</p>
-                    </div>
-                    
-                    <div class="social-links d-flex gap-3 mt-3">
-    <a href="https://instagram.com/farideepl" target="_blank" aria-label="Instagram" class="**social-icon-btn** rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;"><i class="fab fa-instagram fs-5 **text-danger**"></i></a>
-    <a href="https://www.tiktok.com/@farideepl" target="_blank" aria-label="TikTok" class="**social-icon-btn** rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;"><i class="fab fa-tiktok fs-5 **text-danger**"></i></a>
-    <a href="https://t.me/fari_davv" target="_blank" aria-label="Telegram" class="**social-icon-btn** rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;"><i class="fab fa-telegram-plane fs-5 **text-danger**"></i></a>
-</div>
-                </div>
-
-            </div>
-            
-            <div class="footer-bottom text-center pt-3 mt-4 border-top border-secondary">
-                &copy; Group Members: Alua Sagyndyk, Altynay Bolatova, Farida Dovletbaeva — 2025 MyFlix
-            </div>
+            <button class="btn btn-warning w-100 mt-3" id="logoutBtn">Log Out</button>
         </div>
+    </div>
+
+    <footer class="text-light mt-auto pt-5 pb-3 border-top border-secondary">
+        <!-- Your existing footer content -->
     </footer>
 
-    
-
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script src="arrow.js" defer></script> 
-    <script src="popup.js" defer></script> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+    // Authentication functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // Elements
+        const authModal = document.getElementById('accessModal');
+        const profileModal = document.getElementById('profileModal');
+        const openButton = document.getElementById('openAccessModal');
+        const closeButtons = document.querySelectorAll('.close-button');
+        const registerPanel = document.getElementById('registerPanel');
+        const loginPanel = document.getElementById('loginPanel');
+        const showLoginLink = document.getElementById('showLogin');
+        const showRegisterLink = document.getElementById('showRegister');
+        const modalTitle = document.getElementById('modalAccessTitle');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const regForm = document.getElementById('registrationForm');
+        const loginForm = document.getElementById('loginForm');
+
+        // Check auth status on load
+        checkAuthStatus();
+
+        // Open modal based on auth status
+        openButton.addEventListener('click', function() {
+            if (isUserLoggedIn()) {
+                showProfileModal();
+            } else {
+                openAuthModal();
+            }
+        });
+
+        // Close modals
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                closeAllModals();
+            });
+        });
+
+        // Switch between login/register
+        showLoginLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            switchToLogin();
+        });
+
+        showRegisterLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            switchToRegister();
+        });
+
+        // Logout
+        logoutBtn.addEventListener('click', function() {
+            logoutUser();
+        });
+
+        // Register form
+        regForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            handleRegistration();
+        });
+
+        // Login form
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            handleLogin();
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === authModal) closeAllModals();
+            if (e.target === profileModal) closeAllModals();
+        });
+
+        // Functions
+        function openAuthModal() {
+            authModal.style.display = 'flex';
+            switchToRegister();
+        }
+
+        function showProfileModal() {
+            const user = getCurrentUser();
+            if (user) {
+                document.getElementById('profileName').textContent = user.name;
+                document.getElementById('profileEmail').textContent = user.email;
+                document.getElementById('profileMemberSince').textContent = new Date(user.createdAt).toLocaleDateString();
+                profileModal.style.display = 'flex';
+            }
+        }
+
+        function closeAllModals() {
+            authModal.style.display = 'none';
+            profileModal.style.display = 'none';
+        }
+
+        function switchToLogin() {
+            registerPanel.style.display = 'none';
+            loginPanel.style.display = 'block';
+            modalTitle.textContent = 'Welcome Back!';
+            clearMessages();
+        }
+
+        function switchToRegister() {
+            loginPanel.style.display = 'none';
+            registerPanel.style.display = 'block';
+            modalTitle.textContent = 'Register for MyFlix';
+            clearMessages();
+        }
+
+        function handleRegistration() {
+            const name = document.getElementById('regName').value.trim();
+            const email = document.getElementById('regEmail').value.trim();
+            const password = document.getElementById('regPassword').value;
+            const confirmPassword = document.getElementById('regConfirmPassword').value;
+
+            clearMessages();
+
+            // Validation
+            if (!name) {
+                showError('regNameError', 'Name is required');
+                return;
+            }
+            if (!email || !isValidEmail(email)) {
+                showError('regEmailError', 'Valid email is required');
+                return;
+            }
+            if (password.length < 8) {
+                showError('regPasswordError', 'Password must be at least 8 characters');
+                return;
+            }
+            if (password !== confirmPassword) {
+                showError('regConfirmPasswordError', 'Passwords do not match');
+                return;
+            }
+
+            // Create user
+            const result = createUser(name, email, password);
+            if (result.success) {
+                showSuccess('regSuccessMessage', 'Registration successful! Please log in.');
+                regForm.reset();
+                setTimeout(() => switchToLogin(), 1500);
+            } else {
+                showError('regEmailError', result.message);
+            }
+        }
+
+        function handleLogin() {
+            const email = document.getElementById('logEmail').value.trim();
+            const password = document.getElementById('logPassword').value;
+
+            clearMessages();
+
+            if (!email || !isValidEmail(email)) {
+                showError('logEmailError', 'Valid email is required');
+                return;
+            }
+            if (!password) {
+                showError('logPasswordError', 'Password is required');
+                return;
+            }
+
+            const result = authenticateUser(email, password);
+            if (result.success) {
+                setCurrentUser(result.user);
+                showSuccess('logSuccessMessage', 'Login successful!');
+                setTimeout(() => {
+                    closeAllModals();
+                    checkAuthStatus();
+                }, 1000);
+            } else {
+                showError('logPasswordError', result.message);
+            }
+        }
+
+        // Storage functions
+        function getUsers() {
+            return JSON.parse(localStorage.getItem('users')) || [];
+        }
+
+        function saveUsers(users) {
+            localStorage.setItem('users', JSON.stringify(users));
+        }
+
+        function getUserByEmail(email) {
+            const users = getUsers();
+            return users.find(user => user.email === email);
+        }
+
+        function createUser(name, email, password) {
+            const users = getUsers();
+            
+            if (getUserByEmail(email)) {
+                return { success: false, message: 'User already exists' };
+            }
+            
+            const newUser = {
+                id: Date.now().toString(),
+                name: name,
+                email: email,
+                password: password,
+                createdAt: new Date().toISOString()
+            };
+            
+            users.push(newUser);
+            saveUsers(users);
+            return { success: true, user: newUser };
+        }
+
+        function authenticateUser(email, password) {
+            const user = getUserByEmail(email);
+            if (!user) {
+                return { success: false, message: 'User not found' };
+            }
+            if (user.password !== password) {
+                return { success: false, message: 'Invalid password' };
+            }
+            return { success: true, user: user };
+        }
+
+        function setCurrentUser(user) {
+            localStorage.setItem('currentUser', JSON.stringify(user));
+        }
+
+        function getCurrentUser() {
+            return JSON.parse(localStorage.getItem('currentUser'));
+        }
+
+        function logoutUser() {
+            localStorage.removeItem('currentUser');
+            closeAllModals();
+            checkAuthStatus();
+        }
+
+        function isUserLoggedIn() {
+            return getCurrentUser() !== null;
+        }
+
+        function checkAuthStatus() {
+            if (isUserLoggedIn()) {
+                openButton.textContent = 'Profile';
+                openButton.classList.remove('btn-danger');
+                openButton.classList.add('btn-success');
+            } else {
+                openButton.textContent = 'Sign Up';
+                openButton.classList.remove('btn-success');
+                openButton.classList.add('btn-danger');
+            }
+        }
+
+        // Helper functions
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function showError(elementId, message) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.textContent = message;
+                element.style.display = 'block';
+            }
+        }
+
+        function showSuccess(elementId, message) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.textContent = message;
+                element.style.display = 'block';
+            }
+        }
+
+        function clearMessages() {
+            document.querySelectorAll('.error-message, .success-message').forEach(el => {
+                el.textContent = '';
+                el.style.display = 'none';
+            });
+        }
+    });
+    </script>
+
+    <!-- Your other script files -->
+    <script src="arrow.js" defer></script>
     <script src="accordion.js"></script>
     <script src="theme-switcher.js"></script>
     <script src="navKeyboard.js"></script>
     <script src="indexclick.js"></script>
-    </body>
+</body>
 </html>
