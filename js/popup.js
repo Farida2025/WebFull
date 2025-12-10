@@ -1,6 +1,5 @@
-// popup.js
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Проверяем статус авторизации при загрузке страницы
     checkAuthStatus();
 
     const modal = document.getElementById('accessModal');
@@ -150,7 +149,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Функции для работы с пользователями
     function getUsers() {
         return JSON.parse(localStorage.getItem('users')) || [];
     }
@@ -232,7 +230,6 @@ document.addEventListener('DOMContentLoaded', function() {
         updateAuthButton();
     }
 
-    // Обработка формы регистрации
     const regForm = document.getElementById('registrationForm');
     if (regForm) {
         regForm.addEventListener('submit', function(event) {
@@ -284,7 +281,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Обработка формы входа
     const logForm = document.getElementById('loginForm');
     if (logForm) {
         logForm.addEventListener('submit', function(event) {
