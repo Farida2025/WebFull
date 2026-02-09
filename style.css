@@ -2160,3 +2160,31 @@ body.light-theme .datetime-display {
 html {
   height: -webkit-fill-available;
 }
+
+.toast-message {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(26, 26, 26, 0.95);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    z-index: 10000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-left: 4px solid #28a745;
+    max-width: 300px;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.toast-message.error {
+    border-left-color: #ff4444;
+}
+
+.toast-message.info {
+    border-left-color: #17a2b8;
+}
